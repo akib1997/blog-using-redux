@@ -6,7 +6,7 @@ export const initialState = {
   hasErrors: false,
 };
 
-export default function (state = initialState, action) {
+export default function s(state = initialState, action) {
   switch (action.type) {
     case actions.GET_POSTS:
       return { ...state, loading: true };

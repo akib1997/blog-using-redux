@@ -17,10 +17,9 @@ export const getPostsFailure = () => ({
 });
 
 // Combine them all in an asynchronous thunk
-
 export function fetchPosts() {
-  return async (dispatch) => {
-    dispatch(getPosts());
+  return async (dsp) => {
+    dsp(getPosts());
 
     try {
       const response = await fetch(
@@ -28,9 +27,9 @@ export function fetchPosts() {
       );
       const data = await response.json();
 
-      dispatch(getPostsSuccess(data));
+      dsp(getPostsSuccess(data));
     } catch (error) {
-      dispatch(getPostsFailure());
+      dsp(getPostsFailure());
     }
   };
 }
